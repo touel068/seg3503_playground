@@ -12,7 +12,7 @@
 
 | Cas de Test | Résultats Escomprés | Résultats Actuels | Verdict (Succès, Échec, Non-concluant) |
 | --- | --- | --- | --- |
-| 1 | demande d'inscription acceptée | demande d'inscription acceptée | Succès |
+| 1 | demande d'inscription acceptée | Wrong FirstName format / Wrong LastName format  Échec |
 | 2 | demande d'inscription acceptée | demande d'inscription acceptée | Succès |
 | 3 | demande d'inscription acceptée | Wrong FirstName format / Wrong LastName format | Échec |
 | 4 | demande d'inscription acceptée | demande d'inscription acceptée | Succès |
