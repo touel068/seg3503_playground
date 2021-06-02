@@ -149,4 +149,88 @@ class DateTest {
     );
   }
 
+  //Le code en dessous son les tests ajouter pour le lab
+
+  @Test
+    void toString_valid(){
+        Date date = new Date(2020, 5, 25);
+        assertEquals("2020/May/25", date.toString());
+    }
+
+    @Test
+    void nextDate_with9MonthAnd29Day() {
+      Date today = new Date(1800, 9, 29);
+      Date expectedTomorrow = new Date(1800, 9, 30);
+      assertEquals(expectedTomorrow, today.nextDate());
+  }
+
+  @Test
+    void nextDate_leapYearAnd29day() {
+      Date today = new Date(1920, 2, 29);
+      Date expectedTomorrow = new Date(1920, 3, 1);
+      assertEquals(expectedTomorrow, today.nextDate());
+  }
+
+  @Test
+    void nextDate_leapYearAndNot29day() {
+      Date today = new Date(1920, 2, 28);
+      Date expectedTomorrow = new Date(1920, 2, 29);
+      assertEquals(expectedTomorrow, today.nextDate());
+  }
+
+  @Test
+    void nextDate_notLeapYearAnd28day() {
+      Date today = new Date(1919, 2, 28);
+      Date expectedTomorrow = new Date(1919, 3, 1);
+      assertEquals(expectedTomorrow, today.nextDate());
+  }
+
+  @Test
+    void nextDate_notLeapYearAndNot28day() {
+      Date today = new Date(1919, 03, 28);
+      Date expectedTomorrow = new Date(1919, 03, 29);
+      assertEquals(expectedTomorrow, today.nextDate());
+  }
+
+  @Test
+    void isLeapYear_divisibleBy400() {
+      Date today = new Date(2000, 01, 05);
+      assertEquals(true, today.isLeapYear());
+  }
+
+  @Test
+    void equals_isNotADate() {
+       Date today = new Date(1999, 06, 02);
+      Object obj = new Object();
+      assertEquals(false, today.equals(obj));
+  }
+
+  @Test
+    void equals() {
+      Date today = new Date(2013, 7, 2);
+      Date alsoToday = new Date(2013, 7, 2);
+      assertEquals(true, today.equals(alsoToday));
+  }
+
+  @Test
+    void equals_notSameYear() {
+      Date today = new Date(2013, 7, 2);
+      Date alsoToday = new Date(2012, 7, 2);
+      assertEquals(false, today.equals(alsoToday));
+  }
+
+  @Test
+    void equals_notSameMonth() {
+      Date today = new Date(2013, 7, 2);
+      Date alsoToday = new Date(2013, 8, 2);
+      assertEquals(false, today.equals(alsoToday));
+  }
+
+  @Test
+    void equals_notSameDay() {
+      Date today = new Date(2013, 7, 2);
+      Date alsoToday = new Date(2013, 7, 3);
+      assertEquals(false, today.equals(alsoToday));
+  }
+
 }

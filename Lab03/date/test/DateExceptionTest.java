@@ -36,12 +36,17 @@ public class DateExceptionTest {
 		params.add(new Integer[] {-1,	10,	20,	0,0,0});
 		params.add(new Integer[] {1458,	15,	12,	0,0,0});
 		params.add(new Integer[] {1975, 6,-50,0,0,0});
+		//Le code si-dessous a ete ajouter pour augementer le couvrage
+		params.add(new Integer[] {2019,	03,	32,	0,0,0});
+		params.add(new Integer[] {2019,	04,	31,	0,0,0});
+		params.add(new Integer[] {2020,	02,	30,	0,0,0});
+		params.add(new Integer[] {1965,	00,	25,	0,0,0});
 		return params;
 	}
 
 	@Test(expected=IllegalArgumentException.class)
 	public void tests(){
-    		Date  date = new Date(year,month,day);
+    	Date  date = new Date(year,month,day);
 		Date next = date.nextDate();
 		Assert.assertEquals(expectedYear, next.getYear());
 		Assert.assertEquals(expectedMont, next.getMonth());
