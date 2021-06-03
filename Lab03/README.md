@@ -8,6 +8,8 @@
 | TA | Aymen Mhamdi, amham077@uottawa.ca |
 | Équipe | Alex DeGrace (300071786) et Thomas Ouellette (300081063) |
 
+### To run Jacoco execute ./bin/jacoco in the Lab3 folder. A report should get created
+
 # Computation
 
 Below is the proof that we ran computation Jacoco
