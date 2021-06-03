@@ -112,10 +112,10 @@ public class Date {
 		if(day == 30 && isThirtyDayMonth()){
 			return true;
 		}
-		if (this.month == 2 && day == 29 && leap){
+		if(this.month == 2 && day == 28 && !leap){
 			return true;
 		}
-		if(this.month == 2 && day == 28 && !leap){
+		if (this.month == 2 && day == 29){
 			return true;
 		}
 			
