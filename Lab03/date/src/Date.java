@@ -46,16 +46,16 @@ public class Date {
 		if (day < 1) {
 			throw new IllegalArgumentException("day must greater or equal to 1.");
 		}
-		else if (day > 31){
+		 if (day > 31){
 			throw new IllegalArgumentException("day must less or equal to 31.");
 		}
-		else if (isThirtyDayMonth() && day > 30) {
+		 if (isThirtyDayMonth() && day > 30) {
 			throw new IllegalArgumentException("day must less than 30 for month " + monthNames[month-1]);
 		}
-		else if (this.month == 2 && isLeapYear() && day > 29) {
+		 if (this.month == 2 && isLeapYear() && day > 29) {
 			throw new IllegalArgumentException("day must less than 29 for month " + monthNames[month-1] + " on a leap year.");
 		}
-		else if (this.month == 2 && !isLeapYear() && day > 28) {
+		if (this.month == 2 && !isLeapYear() && day > 28) {
 			throw new IllegalArgumentException("day must less than 28 for month " + monthNames[month-1] + " on a non leap year.");
 		}
 		this.day = day;
