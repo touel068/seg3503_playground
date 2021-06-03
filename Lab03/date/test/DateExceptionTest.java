@@ -40,7 +40,7 @@ public class DateExceptionTest {
 		params.add(new Integer[] {2019,	03,	32,	0,0,0});
 		params.add(new Integer[] {2019,	04,	31,	0,0,0});
 		params.add(new Integer[] {2020,	02,	30,	0,0,0});
-		params.add(new Integer[] {1965,	00,	25,	0,0,0});
+		params.add(new Integer[] {1900,	00,	30,	0,0,0});
 		return params;
 	}
 

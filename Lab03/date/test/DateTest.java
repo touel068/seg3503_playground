@@ -186,13 +186,6 @@ class DateTest {
   }
 
   @Test
-    void nextDate_notLeapYearAndNot28day() {
-      Date today = new Date(1919, 03, 28);
-      Date expectedTomorrow = new Date(1919, 03, 29);
-      assertEquals(expectedTomorrow, today.nextDate());
-  }
-
-  @Test
     void isLeapYear_divisibleBy400() {
       Date today = new Date(2000, 01, 05);
       assertEquals(true, today.isLeapYear());
