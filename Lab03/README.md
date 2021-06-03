@@ -26,7 +26,7 @@ We were able to get a coverage of 100% in Date.java after refactoring the code t
 
 ## Is it possible to get 100% coverage of Date.java with only adding 1 test?
 
-No it is not. There is coverage missing in different function which can't be all called in a single test. There is also some coverage that are missing which are mutually exclusive in condition where one test can not cover both.
+No, it is not. Some coverage missing in different functions which can't be all called in a single test. There is also some coverage that is missing. The coverage is mutually exclusive in some condition which means that one test cannot cover both.
 
 ## Refactoring
 
@@ -38,10 +38,10 @@ This refactor did not affect the code at all.
 
 ### Refactor 2
 
-Refactor 2 was undo since it made some of the tests failed.
+Refactor 2 was undone since it made some of the tests failed.
 
 ## Refactor 3
 
-This helped us obtain a coverage of 100% without making any test fail. We could not hit 100% coverage since it was impossible for a date to have the day be 29 and also not being a leap year. Since we check for leap year the if statement above it was not necessairy here.
+This helped us obtain the coverage of 100% without making any test fail. We could not hit 100% coverage since it was impossible for a date to have the day be 29 and also not being a leap year. Since we check for a leap year if statement above, it was not necessary here.
 
 ![refactor 3 test](asset/refactor3.PNG)
