@@ -16,11 +16,15 @@ defmodule Grades.Calculator do
     0.2 * avg_labs + 0.3 * avg_homework + 0.2 * midterm + 0.3 * final
   end
 
+  def avg_exams(midterm,final) do
+    (midterm+final)/2
+  end
+
   def percentage_grade(%{homework: homework, labs: labs, midterm: midterm, final: final}) do
     avg_homework = avg(homework)
     avg_labs = avg(labs)
 
-    mark = 0.2 * avg_homework + 0.3 * avg_labs + 0.2 * midterm + 0.3 * final
+    mark = calculate_grade(avg_labs, avg_homework, midterm, final)
     round(mark * 100)
   end
 
@@ -28,7 +32,7 @@ defmodule Grades.Calculator do
     avg_homework = avg(homework)
     avg_labs = avg(labs)
 
-    avg_exams = (midterm + final) / 2
+    avg_exams = avg_exams(midterm,final)
 
     num_labs =
       labs
@@ -60,7 +64,7 @@ defmodule Grades.Calculator do
     avg_homework = avg(homework)
     avg_labs = avg(labs)
 
-    avg_exams = (midterm + final) / 2
+    avg_exams = avg_exams(midterm,final)
 
     num_labs =
       labs
