@@ -1,5 +1,5 @@
 defmodule Grades.Calculator do
-  
+
   def avg(marks) do
     if Enum.count(marks) == 0 do
         0
@@ -9,7 +9,7 @@ defmodule Grades.Calculator do
   end
 
   def failure_to_participate(avg_homework, avg_exams, num_labs) do
-    avg_homework < 0.4 || avg_exams < 0.4 || num_labs < 3 
+    avg_homework < 0.4 || avg_exams < 0.4 || num_labs < 3
   end
 
   def calculate_grade(avg_labs, avg_homework, midterm, final) do
