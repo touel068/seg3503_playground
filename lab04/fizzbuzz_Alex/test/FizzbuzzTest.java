@@ -17,5 +17,11 @@ class FizzbuzzTest {
         assertEquals("buzz", fb.getFizzBuzz(5));
     }
 
+    @Test
+    void getFizzBuzz_7() {
+        Fizzbuzz fb = new Fizzbuzz();
+        assertEquals("7", fb.getFizzBuzz(7));
+    }
+
 
 }
