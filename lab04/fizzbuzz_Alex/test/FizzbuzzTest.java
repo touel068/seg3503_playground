@@ -5,7 +5,11 @@ import org.junit.jupiter.api.Test;
 
 class FizzbuzzTest {
 
-    
+    @Test
+    void getFizzBuzz_3() {
+        Fizzbuzz fb = new Fizzbuzz();
+        assertEquals("fizz", fb.getFizzBuzz(3));
+    }
 
 
 }
