@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+
 import java.util.Arrays;
 
 class TicTest {
@@ -20,4 +21,9 @@ class TicTest {
         assertEquals(4, tic.boardSize(2,2));
     }
 
+    @Test 
+    public void test_defaultboard(){
+        String[][] result = {{"_","_","_"},{"_","_","_"},{"_","_","_"}};
+        assertTrue(Arrays.deepEquals(result,tic.default_Board()));
+    }
 }

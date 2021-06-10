@@ -19,4 +19,11 @@ public class Tic {
         return indexI*indexJ;
     }
 
+    public static String[][] default_Board(){
+
+        String[][] defboard=null;
+
+        return defboard;
+    }
+
 }
