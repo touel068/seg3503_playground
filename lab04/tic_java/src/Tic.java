@@ -1,7 +1,7 @@
 
 public class Tic {
 
-    public static String emptyboard(int indexI, int indexJ) {
+    public static String[][] emptyboard(int indexI, int indexJ) {
 
         String[][] board = new String[indexI][indexJ];
         for (int i = 0; i < indexI; i++) {
@@ -10,7 +10,7 @@ public class Tic {
             }
         }
 
-        return board[indexI-1][indexJ-1];
+        return board;
 
     }
 

@@ -1,15 +1,19 @@
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class TicTest{
+import java.util.Arrays;
+
+class TicTest {
+
     Tic tic = new Tic();
 
     @Test
-    void test1(){
-        String[][] result = {{"_","_"},{"_","_"}};
-        assertEquals("_", tic.emptyboard(2,2));
+    public void test_emptyboard() {
+        String[][] result = {{"_","_","_"},{"_","_","_"}};
+        assertTrue(Arrays.deepEquals(result,tic.emptyboard(2,3)));
     }
-
+   
 
 }
