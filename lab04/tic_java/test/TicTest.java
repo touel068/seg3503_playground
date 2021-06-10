@@ -14,6 +14,10 @@ class TicTest {
         String[][] result = {{"_","_","_"},{"_","_","_"}};
         assertTrue(Arrays.deepEquals(result,tic.emptyboard(2,3)));
     }
-   
+
+    @Test 
+    public void test_sizeOfBoard() {
+        assertEquals(4, tic.boardSize(2,2));
+    }
 
 }
