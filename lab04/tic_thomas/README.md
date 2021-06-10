@@ -33,7 +33,9 @@ The Tic.java class contains methods to create the board and a method that return
 
 ### step 2 - Create tests that failed and fix the implementation to make the test pass
 
- (https://github.com/touel068/seg3503_playground/tree/main/lab04/tic_java). 
+My link: https://github.com/touel068/seg3503_playground/tree/main/lab04/tic_thomas
+
+partners link: https://github.com/touel068/seg3503_playground/tree/main/lab04/fizzbuzz_Alex
 
 Commits for the tests completed:
 
