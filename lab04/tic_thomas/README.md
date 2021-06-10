@@ -6,7 +6,7 @@
 | Date | Été 2021 |
 | professeur | Andrew Forward, aforward@uottawa.ca |
 | TA | Aymen Mhamdi, amham077@uottawa.ca |
-| Équipe | Alex DeGrace (300071786)|
+| Équipe | Thomas Ouellette (300081063)|
 
 
 # Step took for this lab
@@ -27,13 +27,15 @@ javac -encoding UTF-8 --source-path test -d dist -cp dist:lib/junit-platform-con
 
 java -jar lib/junit-platform-console-standalone-1.7.1.jar --class-path dist --scan-class-path
 
-### Step 1 - Created a Fizzbuzz.java and a FizzbuzzTest.java file
+### Step 1 - Created a Tic.java and a TicTest.java file
 
-The Fizzbuzz.java file contains a method called get fizzbuzz(int) that take a int and return the correct string using the fizzbuzz game logic. For now no logic had been applied the method only return null. The test file contains no test for the moment. This is the initial commit.
+The Tic.java class contains methods to create the board and a method that returns the size of it.
 
 ### step 2 - Create tests that failed and fix the implementation to make the test pass
 
-I have done 5 tests overall and 5 changes in the code so that it would pass all tests. I implemented in a test-driven way the programme fizzbuzz using Java.  Here is a screenshot of the tests before each commit in the git hub repository (https://github.com/touel068/seg3503_playground/tree/main/lab04/fizzbuzz_Alex). 
+ (https://github.com/touel068/seg3503_playground/tree/main/lab04/tic_java). 
+
+Commits for the tests completed:
 
 ##### Commit 1
 
@@ -63,16 +65,6 @@ I have done 5 tests overall and 5 changes in the code so that it would pass all 
 
 ![Commit 7](asset/commit7.PNG)
 
-##### Commit 8
 
-![Commit 8](asset/commit8.PNG)
 
-##### Commit 9
-
-![Commit 9](asset/commit9.PNG)
-
-##### Commit 10
-
-![Commit 10](asset/commit10.PNG)
-
-Please see the commit message to see which test pass and failed for each commit. I made all the commit to the folder fizzbuzz_Alex while my partner commit changes in tic_thomas folder.
+Please see the commit message to see which test pass and failed for each commit. I made all the commit to the folder tic_thomas while my partner commit changes in fizzbuzz_alex folder.
