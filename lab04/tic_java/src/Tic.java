@@ -16,7 +16,7 @@ public class Tic {
 
     public static int boardSize(int indexI,int indexJ){
 
-        return 1;
+        return indexI*indexJ;
     }
 
 }
