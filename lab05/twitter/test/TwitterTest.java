@@ -54,31 +54,42 @@ class TwitterTest {
         assertEquals(false, actual);
     }
 
-    // @Test
-    // void isMentionned_lookForAtSymbol() {
-    //   // Assuming a tweet like "hello @me"
-    //   // isMentionned("me") should be true
-    //   // isMentionned("you") should be false
-    // }
+    @Test
+    void isMentionned_lookForAtSymbol() {
+        Twitter twitter = partialMockBuilder(Twitter.class)
+          .addMockedMethod("loadTweet")
+          .createMock();
 
-    // @Test
-    // void isMentionned_dontReturnSubstringMatches() {
-    //   // Assuming a tweet like "hello @meat"
-    //   // isMentionned("me") should be false
-    //   // isMentionned("meat") should be true
-    // }
+        expect(twitter.loadTweet()).andReturn("hello @me").times(2);
+        replay(twitter);
 
-    // @Test
-    // void isMentionned_superStringNotFound() {
-    //   // Assuming a tweet like "hello @me"
-    //   // isMentionned("me") should be true
-    //   // isMentionned("meat") should be false
-    // }
+        boolean actual;
 
-    // @Test
-    // void isMentionned_handleNull() {
-    //   // Assuming no tweet is available (i.e. null)
-    //   // isMentionned("me") should be false
-    //   // isMentionned("meat") should be false
-    // }
+        actual = twitter.isMentionned("me");
+        assertEquals(true, actual);
+
+        actual = twitter.isMentionned("you");
+        assertEquals(false, actual);
+    }
+
+    /*@Test
+    void isMentionned_dontReturnSubstringMatches() {
+      // Assuming a tweet like "hello @meat"
+      // isMentionned("me") should be false
+      // isMentionned("meat") should be true
+    }*/
+
+   /* @Test
+    void isMentionned_superStringNotFound() {
+      // Assuming a tweet like "hello @me"
+      // isMentionned("me") should be true
+      // isMentionned("meat") should be false
+    }*/
+
+    /*@Test
+    void isMentionned_handleNull() {
+      // Assuming no tweet is available (i.e. null)
+      // isMentionned("me") should be false
+      // isMentionned("meat") should be false
+    }*/
 }
