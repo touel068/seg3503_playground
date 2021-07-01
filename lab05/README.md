@@ -40,7 +40,7 @@ Results from putting working code from assignement 2:
     (stdlib) proc_lib.erl:259: :proc_lib.wake_up/3
 
  Observations from the stub:
- ![Stub result]((screenshot/stub_result.PNG))
+ ![Stub result](screenshot/stub_result.png)
 
 # Part 2 twitter
 
