@@ -76,6 +76,21 @@ class ExampleSeleniumTest {
     assertEquals(expected, getWords(actual)[0]);
   }
 
+  @Test
+  void test3() {
+    WebElement element = driver.findElement(By.id("searchBtn"));
+    element.click();
+    element = driver.findElement(By.id("order-lewis001"));
+    element.click();
+    element = driver.findElement(By.id("cartLink"));
+    element.click();
+    element = driver.findElement(By.name("checkout"));
+    element.click();
+    element = driver.findElement(By.id("order_total"));
+    String actual = element.getText();
+    assertEquals("$33.54", actual);
+  }
+
   private String[] getWords(String s) {
     return s.split("\\s+");
   }
