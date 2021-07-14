@@ -15,8 +15,9 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import jdk.jfr.Timestamp;
 
-class ExampleSeleniumTest {
+class FunctionalSeleniumTest {
 
   static Process server;
   private WebDriver driver;
@@ -52,43 +53,11 @@ class ExampleSeleniumTest {
     server.destroy();
   }
 
-  @Test
-  void test1() {
-    WebElement element = driver.findElement(By.id("title"));
-    String expected = "YAMAZONE BookStore";
-    String actual = element.getText();
-    assertEquals(expected, actual);
-  }
 
-  @Test
-  public void test2() {
-    WebElement welcome = driver.findElement(By.cssSelector("p"));
-    String expected = "Welcome";
-    String actual = welcome.getText();
-    assertEquals(expected, getWords(actual)[0]);
-    WebElement langSelector = driver.findElement(By.id("locales"));
-    langSelector.click();
-    WebElement frSelector = driver.findElement(By.cssSelector("option:nth-child(3)"));
-    frSelector.click();
-    welcome = driver.findElement(By.cssSelector("p"));
-    expected = "Bienvenu";
-    actual = welcome.getText();
-    assertEquals(expected, getWords(actual)[0]);
-  }
+  @Test 
+  public void testF11P(){
+    driver.get("http://localhost:8080/login");
 
-  @Test
-  void test3() {
-    WebElement element = driver.findElement(By.id("searchBtn"));
-    element.click();
-    element = driver.findElement(By.id("order-lewis001"));
-    element.click();
-    element = driver.findElement(By.id("cartLink"));
-    element.click();
-    element = driver.findElement(By.name("checkout"));
-    element.click();
-    element = driver.findElement(By.id("order_total"));
-    String actual = element.getText();
-    assertEquals("$33.54", actual);
   }
 
   private String[] getWords(String s) {
