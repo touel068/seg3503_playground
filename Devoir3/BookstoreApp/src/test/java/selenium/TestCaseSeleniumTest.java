@@ -56,7 +56,9 @@ class TestCaseSeleniumTest {
     server.destroy();
   }
 
-
+  /** 
+   * This test try to login as the admin and look if the web site redirected the user to the correct page 
+   */
   @Test 
   public void TC1(){
     driver.get("http://localhost:8080/login");
@@ -70,6 +72,11 @@ class TestCaseSeleniumTest {
     assertEquals("http://localhost:8080/", actual);
   }
 
+  /** 
+   * This test try to first falsly login as the admin by givin the wrong password 
+   * and then try to login as the admin givin the right password. It look 
+   * if the site as redirected the user to the right page to pass the test.
+   */
   @Test 
   public void TC2(){
     driver.get("http://localhost:8080/login");
@@ -91,6 +98,10 @@ class TestCaseSeleniumTest {
     assertEquals("http://localhost:8080/", actual);
   }
 
+  /**
+   * This test try to log in as the admin and then log him out
+   * to see if does log him out and redirect him at the right page
+   */
   @Test 
   public void TC3(){
     driver.get("http://localhost:8080/login");
@@ -109,9 +120,37 @@ class TestCaseSeleniumTest {
     assertEquals("http://localhost:8080/login?logout", actual);
   }
 
+  /**
+   * This test log in as the admin, does to the admin page and try to add 
+   * a book to the catalogue. It look for the success message to pass the test
+   */
   @Test 
   public void TC4(){
-    
+    driver.get("http://localhost:8080/login");
+    WebElement username = driver.findElement(By.id("loginId"));
+    username.sendKeys("admin");
+    WebElement password = driver.findElement(By.id("loginPasswd"));
+    password.sendKeys("password");
+    WebElement signIn = driver.findElement(By.id("loginBtn"));
+    signIn.click();
+    driver.get("http://localhost:8080/admin");
+    WebElement category = driver.findElement(By.id("addBook-category"));
+    category.sendKeys("Fiction");
+    WebElement bookId = driver.findElement(By.id("addBook-id"));
+    bookId.sendKeys("id12345");
+    WebElement title = driver.findElement(By.id("addBook-title"));
+    title.sendKeys("Title for fiction book");
+    WebElement author = driver.findElement(By.id("addBook-authors"));
+    author.sendKeys("Michael T");
+    WebElement description = driver.findElement(By.id("longDescription"));
+    description.sendKeys("words");
+    WebElement cost = driver.findElement(By.id("cost"));
+    cost.sendKeys("39.99");
+    WebElement form = driver.findElement(By.id("addBook-form"));
+    form.submit();
+    WebElement feedback = driver.findElement(By.id("feedback"));
+    String expected ="Successfully added book";
+    assertEquals(expected,feedback.getText());
   }
 
   @Test 
@@ -124,17 +163,24 @@ class TestCaseSeleniumTest {
     
   }
 
+  /**
+   * This test check that sorting by fiction gives at least one reasult since we have
+   * add a book with the fiction category
+   */
   @Test 
   public void TC7(){
     WebElement categoryInput = driver.findElement(By.id("search"));
     categoryInput.sendKeys("Fiction");
     WebElement searchButton = driver.findElement(By.id("searchBtn"));
     searchButton.click();
-    boolean hasBook = driver.findElements(By.xpath("/html/body/div/div[3]/table/tbody/td")).size() > 0;
+    boolean hasBook = driver.findElements(By.xpath("/html/body/div/div[3]/table/tbody/tr")).size() > 0;
 
     assertEquals(true, hasBook);
   }
 
+  /**
+   * This test look if searching for no category whill gives you all the books
+   */
   @Test 
   public void TC8(){
     WebElement searchButton = driver.findElement(By.id("searchBtn"));
@@ -144,17 +190,25 @@ class TestCaseSeleniumTest {
     assertEquals(true, hasBook);
   }
 
+  /**
+   * This test look if searching by a wrong category get you no book
+   */
   @Test 
   public void TC9(){
     WebElement categoryInput = driver.findElement(By.id("search"));
     categoryInput.sendKeys("aaa");
     WebElement searchButton = driver.findElement(By.id("searchBtn"));
     searchButton.click();
-    boolean hasBook = driver.findElements(By.xpath("/html/body/div/div[3]/table/tbody/td")).size() > 0;
+    boolean hasBook = driver.findElements(By.xpath("/html/body/div/div[3]/table/tbody/tr")).size() > 0;
 
     assertEquals(false, hasBook);
   }
 
+  /**
+   * This test log the user as the admin, try to delete the book we have created at TC4
+   * and look at all the book to make sure no book in the catelog has the title given
+   * at TC4
+   */
   @Test 
   public void TC10(){
     driver.get("http://localhost:8080/login");
@@ -165,7 +219,7 @@ class TestCaseSeleniumTest {
     WebElement loginButton = driver.findElement(By.id("loginBtn"));
     loginButton.click();
     driver.get("http://localhost:8080/admin/catalog");
-    WebElement deleteButton = driver.findElement(By.id("del-rowling001"));
+    WebElement deleteButton = driver.findElement(By.id("del-id12345"));
     deleteButton.click();
     driver.get("http://localhost:8080/");
     WebElement searchButton = driver.findElement(By.id("searchBtn"));
@@ -178,7 +232,7 @@ class TestCaseSeleniumTest {
     while(i < numberOfBooks+1){
       xpath = "/html/body/div/div[3]/table/tbody/tr["+i+"]/td[1]";
       currentElement = driver.findElement(By.xpath(xpath));
-      if(currentElement.getText().equals("The Harry Potter Series")){
+      if(currentElement.getText().equals("Title for fiction book")){
         foundDeletedBook = true;
       }
       i++;
@@ -186,6 +240,11 @@ class TestCaseSeleniumTest {
     assertEquals(false, foundDeletedBook);
   }
 
+  /**
+   * This test search all books in the catelog and try to add a copy
+   * of one book to the cart. It then goes to the cart and look that 
+   * the amount of copies for that book is one
+   */
   @Test 
   public void TC11(){
     WebElement searchButton = driver.findElement(By.id("searchBtn"));
@@ -199,6 +258,11 @@ class TestCaseSeleniumTest {
     assertEquals(true, actual);
   }
 
+  /**
+   * This test search all books in the catelog and try to add a copy
+   * of one book to the cart twice. It then goes to the cart and look that 
+   * the amount of copies for that book is two
+   */
   @Test 
   public void TC12(){
     WebElement searchButton = driver.findElement(By.id("searchBtn"));
@@ -213,6 +277,11 @@ class TestCaseSeleniumTest {
     assertEquals(true, actual);
   }
 
+  /**
+   * This test search all books in the catelog and try to add some 
+   * copies of two books and then goes to the order page to make sure 
+   * all books are display properly
+   */
   @Test 
   public void TC13(){
     WebElement searchButton = driver.findElement(By.id("searchBtn"));
@@ -232,6 +301,12 @@ class TestCaseSeleniumTest {
     assertEquals(true, actual);
   }
 
+  /**
+   * This test search all books in the catelog and try to add a copy
+   * of one book to the cart. It then goes to the cart and try to update
+   * the number of copies to 5 and look at the price to make sure it 
+   * updated correctly
+   */
   @Test 
   public void TC14(){
     WebElement searchButton = driver.findElement(By.id("searchBtn"));
@@ -258,6 +333,12 @@ class TestCaseSeleniumTest {
     assertEquals(true, actual);
   }
 
+  /**
+   * This test search all books in the catelog and try to add a copy
+   * of one book to the cart. It then goes to the cart and try to update
+   * the number of copies to -1 and look at the price to make sure it 
+   * updated correctly to $0
+   */
   @Test 
   public void TC15(){
     WebElement searchButton = driver.findElement(By.id("searchBtn"));
@@ -283,6 +364,10 @@ class TestCaseSeleniumTest {
     assertEquals(true, actual);
   }
 
+  /**
+   * This test search for all books, add to copies of one book to the cart,
+   * goes to the order and select checkout and finaly assure that the total price is correctly calculated.
+   */
   @Test 
   public void TC16(){
     WebElement searchButton = driver.findElement(By.id("searchBtn"));
@@ -300,6 +385,9 @@ class TestCaseSeleniumTest {
     assertEquals(true, actual);
   }
 
+  /**
+   * This test changes the language to french and check if the title is change correctly.
+   */
   @Test 
   public void TC17(){
     Select language = new Select(driver.findElement(By.id("locales")));
