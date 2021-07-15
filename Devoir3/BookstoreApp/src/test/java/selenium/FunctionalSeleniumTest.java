@@ -479,7 +479,9 @@ class FunctionalSeleniumTest {
     WebElement order_shipping = driver.findElement(By.id("order_shipping"));
     assertEquals("$" + String.valueOf(est5p2) + "0", order_shipping.getText());
   }
-
+/**
+ * F7 Positive Test Situations: Attempt to remove a book to see if it is truly removed from the list. 
+ */
   @Test
   public void testF7P() {
     driver.get("http://localhost:8080/login");
@@ -522,7 +524,7 @@ class FunctionalSeleniumTest {
 
   }
   /**
-   * Positive Test Situations:  Attempt to login the e-BookStore with a
+   * F8 Positive Test Situations:  Attempt to login the e-BookStore with a
    * correct username and password to see if it logs you in correctly
    */
   @Test
