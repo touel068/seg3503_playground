@@ -280,9 +280,12 @@ class TestCaseSeleniumTest {
     categoryInput.sendKeys("aaa");
     WebElement searchButton = driver.findElement(By.id("searchBtn"));
     searchButton.click();
-    boolean hasBook = driver.findElements(By.xpath("/html/body/div/div[3]/table/tbody/tr")).size() > 0;
+    WebDriverWait wait = new WebDriverWait(driver, 10);
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div[3]/h1")));
+    
+    WebElement feedback = driver.findElement(By.xpath("/html/body/div/div[3]/h1"));
 
-    assertEquals(false, hasBook);
+    assertEquals("Sorry we do not have any item matching category 'aaa' at this moment", feedback.getText());
   }
 
   /**
