@@ -137,6 +137,62 @@ class FunctionalSeleniumTest {
     // test
     assertTrue(feedback.getText().contains("Validation errors"));
   }
+  /**
+   * F2.1 Positive Test Situations: Search a book by a category with known books in it
+   *
+   */
+  @Test 
+  public void F21P(){
+    WebElement categoryInput = driver.findElement(By.id("search"));
+    categoryInput.sendKeys("Fiction");
+    WebElement searchButton = driver.findElement(By.id("searchBtn"));
+    searchButton.click();
+    boolean hasBook = driver.findElements(By.xpath("/html/body/div/div[3]/table/tbody/tr")).size() > 0;
+    assertEquals(true, hasBook);
+  }
+
+/**
+ * F2.1 Negative Test Situations: Search a book by a non-existent category 
+ */
+  @Test 
+  public void F21N(){
+    WebElement categoryInput = driver.findElement(By.id("search"));
+    categoryInput.sendKeys("aaa");
+    WebElement searchButton = driver.findElement(By.id("searchBtn"));
+    searchButton.click();
+    WebDriverWait wait = new WebDriverWait(driver, 10);
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div[3]/h1")));
+    
+    WebElement feedback = driver.findElement(By.xpath("/html/body/div/div[3]/h1"));
+
+    assertEquals("Sorry we do not have any item matching category 'aaa' at this moment", feedback.getText());
+  }
+/**
+ * F2.2 Positive Test Situations: Search for book with the 
+ * category section being empty to see if all books will be return
+ */
+  @Test 
+  public void F22P(){
+    WebElement searchButton = driver.findElement(By.id("searchBtn"));
+    searchButton.click();
+    boolean hasBook = driver.findElements(By.xpath("/html/body/div/div[3]/table/tbody/tr")).size() > 0;
+
+    assertEquals(true, hasBook);
+  }
+
+  /**
+   * F2.2 Negative Test Situations: Search for a book with a category selected to see if it will return all the books.
+   *
+   */
+  @Test 
+  public void F22N(){
+    WebElement categoryInput = driver.findElement(By.id("search"));
+    categoryInput.sendKeys("Fiction");
+    WebElement searchButton = driver.findElement(By.id("searchBtn"));
+    searchButton.click();
+    boolean hasBook = driver.findElements(By.xpath("/html/body/div/div[3]/table/tbody/tr")).size() > 0;
+    assertEquals(true, hasBook);
+  }
 
   /**
    * F3 Positive Test Situations: Attempt to add to the cart a book from the book
@@ -423,7 +479,9 @@ class FunctionalSeleniumTest {
     WebElement order_shipping = driver.findElement(By.id("order_shipping"));
     assertEquals("$" + String.valueOf(est5p2) + "0", order_shipping.getText());
   }
-
+/**
+ * F7 Positive Test Situations: Attempt to remove a book to see if it is truly removed from the list. 
+ */
   @Test
   public void testF7P() {
     driver.get("http://localhost:8080/login");
@@ -465,6 +523,39 @@ class FunctionalSeleniumTest {
     assertFalse(tbody.getText().contains("book to delete"));
 
   }
+  /**
+   * F8 Positive Test Situations:  Attempt to login the e-BookStore with a
+   * correct username and password to see if it logs you in correctly
+   */
+  @Test
+  public void F8P(){
+    driver.get("http://localhost:8080/login");
+    WebElement usernameInput = driver.findElement(By.id("loginId"));
+    WebElement passwordInput = driver.findElement(By.id("loginPasswd"));
+    usernameInput.sendKeys("admin");
+    passwordInput.sendKeys("password");
+    WebElement loginButton = driver.findElement(By.id("loginBtn"));
+    loginButton.click();
+    String actual = driver.getCurrentUrl();
+    assertEquals("http://localhost:8080/", actual);
+  }
+
+  
+  @Test 
+  public void F8N(){
+    driver.get("http://localhost:8080/login");
+    WebElement usernameInput = driver.findElement(By.id("loginId"));
+    WebElement passwordInput = driver.findElement(By.id("loginPasswd"));
+    WebElement loginButton = driver.findElement(By.id("loginBtn"));
+    usernameInput.sendKeys("admin");
+    passwordInput.sendKeys("pass");
+    loginButton.click();
+    WebDriverWait wait = new WebDriverWait(driver, 60);
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div[3]/div")));
+    WebElement feedback = driver.findElement(By.xpath("/html/body/div/div[3]/div"));
+    assertEquals("Invalid username and/or password", feedback.getText());
+  }
+
 
   private String[] getWords(String s) {
     return s.split("\\s+");
