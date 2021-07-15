@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="ExampleTest" time="0.041" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="selenium.TestCaseSeleniumTest" time="77.459" tests="17" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -55,5 +55,32 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="makingSureJUnitConfigured" classname="ExampleTest" time="0.032"/>
+  <testcase name="TC1" classname="selenium.TestCaseSeleniumTest" time="5.682"/>
+  <testcase name="TC2" classname="selenium.TestCaseSeleniumTest" time="4.784"/>
+  <testcase name="TC3" classname="selenium.TestCaseSeleniumTest" time="3.347"/>
+  <testcase name="TC4" classname="selenium.TestCaseSeleniumTest" time="2.816"/>
+  <testcase name="TC5" classname="selenium.TestCaseSeleniumTest" time="2.687"/>
+  <testcase name="TC6" classname="selenium.TestCaseSeleniumTest" time="2.698"/>
+  <testcase name="TC7" classname="selenium.TestCaseSeleniumTest" time="13.154">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at selenium.TestCaseSeleniumTest.TC7(TestCaseSeleniumTest.java:135)
+]]></failure>
+    <system-err><![CDATA[Starting ChromeDriver 91.0.4472.101 (af52a90bf87030dd1523486a1cd3ae25c5d76c9b-refs/branch-heads/4472@{#1462}) on port 41387
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Jul. 14, 2021 11:06:11 P.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+  </testcase>
+  <testcase name="TC8" classname="selenium.TestCaseSeleniumTest" time="3.044"/>
+  <testcase name="TC9" classname="selenium.TestCaseSeleniumTest" time="12.901"/>
+  <testcase name="TC10" classname="selenium.TestCaseSeleniumTest" time="3.805"/>
+  <testcase name="TC11" classname="selenium.TestCaseSeleniumTest" time="3.199"/>
+  <testcase name="TC12" classname="selenium.TestCaseSeleniumTest" time="3.05"/>
+  <testcase name="TC13" classname="selenium.TestCaseSeleniumTest" time="3.285"/>
+  <testcase name="TC14" classname="selenium.TestCaseSeleniumTest" time="3.343"/>
+  <testcase name="TC15" classname="selenium.TestCaseSeleniumTest" time="3.302"/>
+  <testcase name="TC16" classname="selenium.TestCaseSeleniumTest" time="3.424"/>
+  <testcase name="TC17" classname="selenium.TestCaseSeleniumTest" time="2.916"/>
 </testsuite>
