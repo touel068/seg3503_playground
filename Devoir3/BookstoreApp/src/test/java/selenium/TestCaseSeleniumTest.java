@@ -121,7 +121,7 @@ class TestCaseSeleniumTest {
   }
 
   /**
-   * This test log in as the admin, does to the admin page and try to add 
+   * This test log in as the admin, goes to the admin page and try to add 
    * a book to the catalogue. It look for the success message to pass the test
    */
   @Test 
@@ -153,14 +153,95 @@ class TestCaseSeleniumTest {
     assertEquals(expected,feedback.getText());
   }
 
+  /**
+   * This test log in as the admin, goes to the admin page and try to add 
+   * a book to the catalogue that has a missing title, look for an error message, add
+   * the title and look for a success message. The test pass if both message has appear
+   */
   @Test 
   public void TC5(){
-    
+    // go to login page
+    driver.get("http://localhost:8080/login");
+    // enter login information
+    WebElement username = driver.findElement(By.id("loginId"));
+    username.sendKeys("admin");
+    WebElement password = driver.findElement(By.id("loginPasswd"));
+    password.sendKeys("password");
+    WebElement signIn = driver.findElement(By.id("loginBtn"));
+    signIn.click();
+    // go to admin page
+    driver.get("http://localhost:8080/admin");
+    // create a book with the wrong information
+    WebElement category = driver.findElement(By.id("addBook-category"));
+    category.sendKeys("Fiction");
+    WebElement bookId = driver.findElement(By.id("addBook-id"));
+    int result = (int) (Math.random() * (1000 - 5)) + 5;
+    bookId.sendKeys("boId" + result);
+    WebElement title = driver.findElement(By.id("addBook-title"));
+    // author is missing
+    WebElement author = driver.findElement(By.id("addBook-authors"));
+    author.sendKeys("Michael T.");
+    WebElement description = driver.findElement(By.id("longDescription"));
+    description.sendKeys("words");
+    WebElement cost = driver.findElement(By.id("cost"));
+    cost.sendKeys("39.99");
+    WebElement form = driver.findElement(By.id("addBook-form"));
+    // submit form
+    form.submit();
+    // wait for failure feed back
+    WebElement badFeedBack = driver.findElement(By.id("feedback"));
+    WebDriverWait wait = new WebDriverWait(driver, 20);
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("feedback")));
+    // test
+    boolean thereIsErrorMessage= badFeedBack.getText().contains("Validation errors");
+    title.sendKeys("Title 3");
+    form.submit();
+    WebElement goodFeedBack = driver.findElement(By.id("feedback"));
+    boolean actual = thereIsErrorMessage && goodFeedBack.getText().contains("Successfully added book");
+    assertTrue(actual);
+
   }
 
+  /**
+   * This test log in as the admin, goes to the admin page and try to add 
+   * a book that has the same id as another book and it pass if it display and error message
+   */
   @Test 
   public void TC6(){
-    
+    // go to login page
+    driver.get("http://localhost:8080/login");
+    // enter login information
+    WebElement username = driver.findElement(By.id("loginId"));
+    username.sendKeys("admin");
+    WebElement password = driver.findElement(By.id("loginPasswd"));
+    password.sendKeys("password");
+    WebElement signIn = driver.findElement(By.id("loginBtn"));
+    signIn.click();
+    // go to admin page
+    driver.get("http://localhost:8080/admin");
+    // create a book with the wrong information
+    WebElement category = driver.findElement(By.id("addBook-category"));
+    category.sendKeys("Fiction");
+    WebElement bookId = driver.findElement(By.id("addBook-id"));
+    bookId.sendKeys("id12345");
+    WebElement title = driver.findElement(By.id("addBook-title"));
+    title.sendKeys("A Book");
+    // author is missing
+    WebElement author = driver.findElement(By.id("addBook-authors"));
+    author.sendKeys("Alex Degrace");
+    WebElement description = driver.findElement(By.id("longDescription"));
+    description.sendKeys("words");
+    WebElement cost = driver.findElement(By.id("cost"));
+    cost.sendKeys("39.99");
+    WebElement form = driver.findElement(By.id("addBook-form"));
+    // submit form
+    form.submit();
+    // wait for failure feed back
+    WebElement feedback = driver.findElement(By.id("feedback"));
+    WebDriverWait wait = new WebDriverWait(driver, 20);
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("feedback")));
+    // test
+    assertTrue(feedback.getText().contains("Book with same id already exist"));
   }
 
   /**
