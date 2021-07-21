@@ -10,7 +10,7 @@
 
 
 SpotBug
-![SpotBug](screenshots/SpotBugs.png)
+![SpotBug](screenshots/SpotBugs.PNG)
 
 The applications running
-![App](screenshots/app.png)
+![App](screenshots/app.PNG)
