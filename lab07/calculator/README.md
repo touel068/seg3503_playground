@@ -39,3 +39,16 @@ Screenshot of Bug Fix:
 ![bug4](screenshots/bug4.PNG)
 Bug Fix Description: Commented out unused code
 
+### 5.Boxing/unboxing to parse a primitive CalCFrame.processNumbers() <br />
+![bug5s](screenshots/bug5s.PNG)
+Screenshot of Bug Fix: <br />
+![bug5](screenshots/bug5.PNG)
+Bug Fix Description: removed .doubleValue();
+
+
+### 6.Boxing/unboxing to parse a primitive CalCFrame.showAnswer(String) <br />
+![bug6s](screenshots/bug6s.PNG)
+Screenshot of Bug Fix: <br />
+![bug6](screenshots/bug6.PNG)
+Bug Fix Description:removed .doubleValue(); and changed to parseDouble(input)
+
