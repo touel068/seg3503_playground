@@ -13,7 +13,7 @@ Screenshot of the SpotBug with the 18 original bugs:
 ![SpotBug](screenshots/SpotBugs.PNG)
 
 Screenshot of he applications running: 
-![App](screenshots/app.PNG)
+![App](screenshots/apprunning.PNG)
 
 
 # Bugs
