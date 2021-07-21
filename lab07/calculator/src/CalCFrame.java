@@ -70,15 +70,7 @@ public CalCFrame(String title) {
     buttons[i] = new JButton( buttonText[i] );   
     buttons[i].setFont( buttonfont );
     buttons[i].addActionListener( this );
-    
-    if ( i <= 2 )
-        getContentPane().add( buttons[i] );
-    else if ( i >= 3 && i <= 7)
-        getContentPane().add( buttons[i] );
-    else if ( i >=8 && i <= 12 )
-        getContentPane().add( buttons[i] );
-    else if ( i >= 13 && i <= 17 )
-        getContentPane().add( buttons[i] );
+    getContentPane().add( buttons[i] );
    
        
     if ( i == 2 )
@@ -300,7 +292,7 @@ public void processNumbers() {
   
     // if more than two numbers are being inputted to calculate, this "if" block
     // is accessed
-    else if (morenums) { 
+    else { 
       
       if ( equals ) {
        

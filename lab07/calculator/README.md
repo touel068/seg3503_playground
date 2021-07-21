@@ -69,5 +69,22 @@ Bug Fix Description: removed the else statement at the end
 ![bug14s](screenshots/bug14s.PNG)
 Screenshot of Bug Fix: <br />
 ![bug14](screenshots/bug13f.PNG)
-Bug fix description: A default case should be added in case none of the other cases are executed. Here a temporary error print was added.
+Bug fix description: A default case should be added in case none of the other cases are executed. Here a print statement was added as an example of a fix
 Bug description: There are no default cases for this switch statement
+
+
+### 15-17.Useless condition: it's known that local$X >=Y at this point <br />
+![bug15s](screenshots/bug15s.PNG)
+Screenshot of Bug Fix: <br />
+![bug15](screenshots/bug15.PNG)
+Bug fix description: Replaced  the entire code with one line sicne it is executed regardless. (based on the else statement that was removed in bug 13)
+
+### 18 Useless condition: it's known that this.morenums == true at this point  <br />
+![bug18s](screenshots/bug18s.PNG)
+Screenshot of Bug Fix: <br />
+![bug18](screenshots/bug18.PNG)
+Bug fix description: replaced else if with else
+
+## Conclusion <br />
+16/18 of the bugs were fixed using SpotBugs, here is the final analysis:
+![final](screenshots/final.PNG)
