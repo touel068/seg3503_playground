@@ -52,3 +52,16 @@ Screenshot of Bug Fix: <br />
 ![bug6](screenshots/bug6.PNG)
 Bug Fix Description:removed .doubleValue(); and changed to parseDouble(input)
 
+### 7-12 Unread field: CalCFrame.X; should this field be static? 
+![bug7s](screenshots/bug7s.PNG)
+Screenshot of Bug Fix: <br />
+![bug7](screenshots/bug7.PNG)
+Bug Fix Description:field made static
+
+### 13. new CalCFrame(String) uses the same code for two branches <br />
+![bug13s](screenshots/bug13s.PNG)
+Screenshot of Bug Fix: <br />
+![bug13](screenshots/bug13.PNG)
+Bug Fix Description: removed the else if that makes the code redundant
+
+

@@ -34,7 +34,7 @@ class CalCFrame extends JFrame implements ActionListener
                       num1 = 0.0, 
                       num2 = 0.0, 
                       num3 = 0.0;
-  private final int   ADD=1,        // integer constants representing operators
+  private final static int   ADD=1,        // integer constants representing operators
                       SUB = 2, 
                       MULT = 3, 
                       DIVI = 4, 
