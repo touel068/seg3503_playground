@@ -61,7 +61,13 @@ Bug Fix Description:field made static
 ### 13. new CalCFrame(String) uses the same code for two branches <br />
 ![bug13s](screenshots/bug13s.PNG)
 Screenshot of Bug Fix: <br />
-![bug13](screenshots/bug13.PNG)
-Bug Fix Description: removed the else if that makes the code redundant
+![bug13f](screenshots/bug13f.PNG)
+Bug Fix Description: removed the else statement at the end
 
 
+### 14.Switch statement found in CalCFrame.calculate(int, double, double) where default case is missing <br />
+![bug14s](screenshots/bug14s.PNG)
+Screenshot of Bug Fix: <br />
+![bug14](screenshots/bug13f.PNG)
+Bug fix description: A default case should be added in case none of the other cases are executed. Here a temporary error print was added.
+Bug description: There are no default cases for this switch statement

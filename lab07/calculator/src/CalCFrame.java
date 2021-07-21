@@ -79,8 +79,7 @@ public CalCFrame(String title) {
         getContentPane().add( buttons[i] );
     else if ( i >= 13 && i <= 17 )
         getContentPane().add( buttons[i] );
-    else
-        getContentPane().add( buttons[i] );
+   
        
     if ( i == 2 )
         getContentPane().add( new JLabel( "  " ) );
@@ -344,7 +343,9 @@ public double calculate( int oper, double number1, double number2 )
             break;
           case SQRT:
             answer = Math.sqrt( number1 );
-            break;      
+            break;  
+          default :
+            System.out.println("Error would be here");
       } // end switch  
       
      return answer;     
