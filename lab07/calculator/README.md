@@ -9,8 +9,16 @@
 | Équipe | Alex DeGrace (300071786) et Thomas Ouellette (300081063) |
 
 
-SpotBug
+Screenshot of the SpotBug with the 18 original bugs:
 ![SpotBug](screenshots/SpotBugs.PNG)
 
-The applications running
+Screenshot of he applications running: 
 ![App](screenshots/app.PNG)
+
+
+# Bugs
+1.Comparison of String parameter using == or != in CalCFrame.clickCheck(String) 
+Screenshot of Bug Fix:
+![bug1](screenshots/bug1.PNG)
+Bug Fix Description: The equals() method should be used
+Bug Description: == is used to compare the string s to “”, this is inadequate for string since the == operator checks whether the references to the objects are equal not if the string content is the same
