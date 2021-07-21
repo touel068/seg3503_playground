@@ -9,16 +9,27 @@
 | Équipe | Alex DeGrace (300071786) et Thomas Ouellette (300081063) |
 
 
-Screenshot of the SpotBug with the 18 original bugs:
+Screenshot of the SpotBug with the 18 original bugs:<br />
 ![SpotBug](screenshots/SpotBugs.PNG)
 
-Screenshot of he applications running: 
+Screenshot of he applications running: <br />
 ![App](screenshots/apprunning.PNG)
 
 
-# Bugs
-1.Comparison of String parameter using == or != in CalCFrame.clickCheck(String) 
-Screenshot of Bug Fix:
+## Bugs
+### 1.Comparison of String parameter using == or != in CalCFrame.clickCheck(String) <br />
+![bug1s](screenshots/bug1s.PNG)
+Screenshot of Bug Fix:<br />
 ![bug1](screenshots/bug1.PNG)
 Bug Fix Description: The equals() method should be used
 Bug Description: == is used to compare the string s to “”, this is inadequate for string since the == operator checks whether the references to the objects are equal not if the string content is the same
+
+### 2.Call to swing method in Main.main(String[]) needs to be performed in Swing event thread <br />
+![bug2s](screenshots/bug2s.PNG)
+Bug Description:The Swing methods setVisible() creates the associated peer for the frame and the event dispatch thread which could be notifying listeners while pack and validate are still processing. This could cause a deadlock.
+
+### 3.The class CalCFrame$1 could be refactored into a named _static_ inner class <br />
+Bug Fix Description: The code should be refactored so the WindowAdapter can be made into a static inner class withing CalCFrame
+Bug Description: references made by this inner class may be kept alive longer then necessary
+
+
