@@ -8,6 +8,7 @@
 | TA | Aymen Mhamdi, amham077@uottawa.ca |
 | Équipe | Alex DeGrace (300071786) et Thomas Ouellette (300081063) |
 
+github: https://github.com/touel068/seg3503_playground/tree/main/lab07/calculator
 
 Screenshot of the SpotBug with the 18 original bugs:<br />
 ![SpotBug](screenshots/SpotBugs.PNG)
