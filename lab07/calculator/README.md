@@ -29,7 +29,13 @@ Bug Description: == is used to compare the string s to “”, this is inadequat
 Bug Description:The Swing methods setVisible() creates the associated peer for the frame and the event dispatch thread which could be notifying listeners while pack and validate are still processing. This could cause a deadlock.
 
 ### 3.The class CalCFrame$1 could be refactored into a named _static_ inner class <br />
+![bug3s](screenshots/bug3s.PNG)
 Bug Fix Description: The code should be refactored so the WindowAdapter can be made into a static inner class withing CalCFrame
 Bug Description: references made by this inner class may be kept alive longer then necessary
 
+### 4.Private method CalcFrameTest.setClearscreen(CalCFrame, boolean) is never called <br />
+![bug4s](screenshots/bug4s.PNG)
+Screenshot of Bug Fix:
+![bug4](screenshots/bug4.PNG)
+Bug Fix Description: Commented out unused code
 
